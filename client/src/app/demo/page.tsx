@@ -3,7 +3,7 @@ import { Category } from "@/src/components/Category";
 export default function page() {
   return (
     <div className="flex p-[5vw] gap-3.5">
-      <div className="flex flex-3 bg-blue-100 text-black p-3 gap-2 flex-col">
+      <div className="flex flex-3 bg-blue-100 text-black p-7 gap-2 flex-col">
         <h1 className="text-3xl underline">Implementiraj Linearnu Listu</h1>
         <div className="flex gap-2.5">
           <Category>MI-24/25</Category>
@@ -21,18 +21,25 @@ su odsječcima koda u nastavku.
 
 `}
         </pre>
+
+        <div className="flex gap-3 flex-col">
+          <h2 className="text-xl">Prototipovi:</h2>
+          <div className="flex">
+            <pre className="p-1 bg-blue-50">
+              {` template<typename T>
+class ListElement{
+ public:
+ T i;
+ ListElement<T>* next;
+};`}
+            </pre>
+          </div>
+        </div>
       </div>
       <div className="flex-2">
         <textarea
           className="bg-blue-50 text-black p-1.5 w-[100%] h-[60vh] resize-none"
           defaultValue={`
-// Definicija elementa liste
-// template<typename T>
-// class ListElement{
-//  public:
-//  T i;
-//  ListElement<T>* next;
-// };
 
 
 
