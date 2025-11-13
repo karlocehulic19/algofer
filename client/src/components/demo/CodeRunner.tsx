@@ -2,8 +2,8 @@ export function CodeRunner() {
   return (
     <div className="flex-2">
       <textarea
-        className="bg-blue-50 text-black p-1.5 w-[100%] h-[60vh] resize-none"
-        defaultValue={` template<typename T>
+        className="bg-blue-50 text-black p-1.5 w-full h-[60vh] resize-none"
+        defaultValue={`template<typename T>
 class MyList{
  private:
  ListElement<T> *head;
