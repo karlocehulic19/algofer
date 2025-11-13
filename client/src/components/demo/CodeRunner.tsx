@@ -5,12 +5,12 @@ export function CodeRunner() {
         className="bg-blue-50 text-black p-1.5 w-full h-[60vh] resize-none"
         defaultValue={`template<typename T>
 class MyList{
- private:
- ListElement<T> *head;
- public:
- void AddUnique(T val){ //vaš kod za AddUnique }
- void Remove(T val){ // vaš kod za Remove }
- bool Contains(T val){ // vaš kod za Contains }
+  private:
+    ListElement<T> *head;
+  public:
+    void AddUnique(T val){ //vaš kod za AddUnique }
+    void Remove(T val){ // vaš kod za Remove }
+    bool Contains(T val){ // vaš kod za Contains }
 };`}
       ></textarea>
 

@@ -25,11 +25,11 @@ su odsječcima koda u nastavku.
         <h2 className="text-xl">Prototipovi:</h2>
         <div className="flex">
           <pre className="p-1 bg-blue-50">
-            {` template<typename T>
+            {`template<typename T>
 class ListElement{
- public:
- T i;
- ListElement<T>* next;
+  public:
+    T i;
+    ListElement<T>* next;
 };`}
           </pre>
         </div>
