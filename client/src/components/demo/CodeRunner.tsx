@@ -1,3 +1,5 @@
+import { Button } from "../Button";
+
 export function CodeRunner() {
   return (
     <div className="flex-2">
@@ -13,8 +15,10 @@ class MyList{
     bool Contains(T val){ // vaš kod za Contains }
 };`}
       ></textarea>
-
-      <div>This is demo page!</div>
+      <div className="flex gap-4 justify-end">
+        <Button className="bg-gray-500 ">Run</Button>
+        <Button className="bg-green-500 ">Submit</Button>
+      </div>
     </div>
   );
 }
