@@ -9,5 +9,4 @@ public class AlgoferApplication {
   public static void main(String[] args) {
     SpringApplication.run(AlgoferApplication.class, args);
   }
-
 }
