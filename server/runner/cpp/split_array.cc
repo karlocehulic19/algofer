@@ -1,7 +1,8 @@
 #include <string>
 #include <vector>
 
-using namespace std;
+using std::string;
+using std::vector;
 
 vector<string> splitArray(string actionsString) {
   string trimmedActions = actionsString.substr(1, actionsString.length() - 2);
