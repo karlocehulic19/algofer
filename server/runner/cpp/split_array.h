@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
-vector<string> splitArray(string actionsString);
+std::vector<std::string> splitArray(std::string actionsString);
 
 #endif
