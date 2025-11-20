@@ -11,4 +11,8 @@ TEST(splitArray, SplitsBasicStringArrays) {
   vector<string> basic = {"A", "B", "C"};
   EXPECT_EQ(splitArray("[A,B,C]"), basic);
 }
+TEST(splitArray, SplitsNestedStringArrays) {
+  vector<string> nested = {"A", "[B,C,D]", "C"};
+  EXPECT_EQ(splitArray("[A,[B,C,D],C]"), nested);
+}
 } // namespace
