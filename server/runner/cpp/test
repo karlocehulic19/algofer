@@ -1,0 +1,8 @@
+#!/bin/bash
+if ! cmake --build build; then
+    cmake -S . -B build
+    cmake --build build
+fi
+
+cd build
+ctest
