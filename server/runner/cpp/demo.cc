@@ -48,6 +48,7 @@ public:
     curr->next = newUnique;
 
     head = dummy->next;
+    delete dummy;
   }
 
   void Remove(T val) {
@@ -68,6 +69,7 @@ public:
     }
 
     head = dummy->next; // in case head is delted
+    delete dummy;
   }
 
   bool Contains(T val) {
