@@ -1,4 +1,4 @@
-#include "join_array.h"
+#include "list_element.h"
 #include "split_array.h"
 #include <iostream>
 #include <stdexcept>
@@ -6,12 +6,6 @@
 #include <vector>
 
 using namespace std;
-
-template <typename T> class ListElement {
-public:
-  T i;
-  ListElement<T> *next;
-};
 
 template <typename T> class Solution {
 public:
