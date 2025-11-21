@@ -1,3 +1,4 @@
+#include "join_array.h"
 #include "split_array.h"
 #include <iostream>
 #include <stdexcept>
@@ -13,11 +14,20 @@ public:
 };
 
 template <typename T> class Solution {
+public:
+  virtual void AddUnique(T val) = 0;
+
+  virtual void Remove(T val) = 0;
+
+  virtual bool Contains(T val) = 0;
+};
+
+template <typename T> class CorrectSolution : public Solution<T> {
 private:
   ListElement<T> *head;
 
 public:
-  Solution() { this->head = nullptr; };
+  CorrectSolution() { this->head = nullptr; };
 
   void AddUnique(T val) {
     if (this->Contains(val)) {
@@ -83,9 +93,9 @@ public:
   MyList() { this->head = nullptr; };
 
   void AddUnique(T val) {
-    if (this->Contains(val)) {
-      return;
-    }
+    // if (this->Contains(val)) {
+    //   return;
+    // }
 
     ListElement<T> *dummy = new ListElement<T>();
     dummy->next = head;
@@ -137,10 +147,21 @@ public:
   }
 };
 
-vector<string> runner(string testCase) {
+template <typename T> class UserSolution : public Solution<T> {
+private:
+  MyList<T> list;
+
+public:
+  void AddUnique(T val) { list.AddUnique(val); }
+
+  void Remove(T val) { list.Remove(val); }
+
+  bool Contains(T val) { return list.Contains(val); }
+};
+
+vector<string> runner(Solution<int> &solutionStrategy, string testCase) {
   vector<string> actions = splitArray(testCase);
   vector<string> result;
-  MyList<int> list;
 
   int i = 1; // Constructor can be avoided
   while (i < actions.size()) {
@@ -152,13 +173,13 @@ vector<string> runner(string testCase) {
 
     string value = actions[i];
     if (action == "AddUnique") {
-      list.AddUnique(stoi(value));
+      solutionStrategy.AddUnique(stoi(value));
       result.push_back("null");
     } else if (action == "Remove") {
-      list.Remove(stoi(value));
+      solutionStrategy.Remove(stoi(value));
       result.push_back("null");
     } else if (action == "Contains") {
-      if (list.Contains(stoi(value))) {
+      if (solutionStrategy.Contains(stoi(value))) {
         result.push_back("true");
       } else {
         result.push_back("false");
