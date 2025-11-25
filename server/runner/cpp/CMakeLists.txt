@@ -20,8 +20,8 @@ enable_testing()
 
 add_executable(
   split_array_test
-  split_array_test.cc
-  split_array.cc
+  ./utils/split_array_test.cc
+  ./utils/split_array.cc
 )
 target_link_libraries(
   split_array_test
@@ -33,8 +33,8 @@ gtest_discover_tests(split_array_test)
 
 add_executable(
   join_array_test
-  join_array_test.cc
-  join_array.cc
+  ./utils/join_array_test.cc
+  ./utils/join_array.cc
 )
 target_link_libraries(
   join_array_test
