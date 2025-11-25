@@ -1,6 +1,7 @@
+#include "./utils/join_array.h"
+#include "./utils/split_array.h"
 #include "list_element.h"
 #include "mylist.h"
-#include "split_array.h"
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -125,8 +126,22 @@ vector<string> runner(Solution<int> &solutionStrategy, string testCase) {
   return result;
 }
 
-int main(void) {
-  vector<string> runnerRes =
-      runner("[MyList,AddUnique,3,AddUnique,5,Contains,3,Remove,3,Contains,3]");
-  cout << "Hello Runner";
+void testCaseComparer(string testcase) {
+  UserSolution<int> userSolution;
+  CorrectSolution<int> correctSolution;
+
+  string userOutput = joinArray(runner(userSolution, testcase));
+  string correctOutput = joinArray(runner(correctSolution, testcase));
+
+  if (userOutput != correctOutput) {
+    cout << userOutput << endl;
+    cout << correctOutput << endl;
+  }
+}
+
+int main(int argc, char *argv[]) {
+  string testcase = argv[1];
+
+  testCaseComparer(testcase);
+  return 0;
 }
