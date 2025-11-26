@@ -1,11 +1,14 @@
 import { CodeResultSection } from "../CodeResultSection";
+import { submitCodeAction } from "@/src/app/actions";
 
 export function CodeRunner() {
   return (
     <div className="flex-2">
-      <textarea
-        className="bg-blue-50 text-black p-1.5 w-full h-[60vh] resize-none"
-        defaultValue={`template<typename T>
+      <form action={submitCodeAction}>
+        <textarea
+          name="code"
+          className="bg-blue-50 text-black p-1.5 w-full h-[60vh] resize-none"
+          defaultValue={`template<typename T>
 class MyList{
   private:
     ListElement<T> *head;
@@ -14,8 +17,9 @@ class MyList{
     void Remove(T val){ // vaš kod za Remove }
     bool Contains(T val){ // vaš kod za Contains }
 };`}
-      ></textarea>
-      <CodeResultSection />
+        ></textarea>
+        <CodeResultSection />
+      </form>
     </div>
   );
 }
