@@ -1,5 +1,6 @@
 package com.hr.fer.algofer.code;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,12 +10,14 @@ import com.hr.fer.algofer.code.utils.CopyCode;
 
 @RestController
 public class CodeRunnerController {
+  @Autowired
+  private CompileCode compileCode;
+
   @PostMapping("/api/demo/submit")
   CodeSubmitResult SubmitDemoSolution(@RequestBody CodeSubmit body) {
-
     try {
       CopyCode.copy(body.code());
-      CompileCode.compile();
+      compileCode.compile();
     } catch (Exception e) {
       System.out.println(e);
     }
