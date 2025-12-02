@@ -13,9 +13,15 @@ class MyList{
   private:
     ListElement<T> *head;
   public:
-    void AddUnique(T val){ //vaš kod za AddUnique }
-    void Remove(T val){ // vaš kod za Remove }
-    bool Contains(T val){ // vaš kod za Contains }
+    void AddUnique(T val){
+    //vaš kod za AddUnique
+    } 
+    void Remove(T val){
+    // vaš kod za Remove 
+    } 
+    bool Contains(T val){
+    // vaš kod za Contains
+    } 
 };`}
         ></textarea>
         <CodeResultSection />
