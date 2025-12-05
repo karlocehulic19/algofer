@@ -14,14 +14,10 @@ public class CompileCode {
   @Value("${EXECUTABLE_NAME}")
   private String executableName;
 
-  private String executablePath;
-
-  CompileCode() {
-    File executableDir = new File(executableDirPath);
-    executablePath = executableDir.getAbsolutePath() + "/" + executableName;
-  }
-
   public void compile() throws IOException, InterruptedException {
+    File executableDir = new File(executableDirPath);
+    String executablePath = executableDir.getAbsolutePath() + "/" + executableName;
+
     File demoFile = new File("runner/cpp/demo.cc");
     File splitArrayFile = new File("runner/cpp/utils/split_array.cc");
     File joinArrayFile = new File("runner/cpp/utils/join_array.cc");
