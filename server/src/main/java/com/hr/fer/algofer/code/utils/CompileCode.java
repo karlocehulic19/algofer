@@ -1,5 +1,6 @@
 package com.hr.fer.algofer.code.utils;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
@@ -22,7 +23,7 @@ public class CompileCode {
     File splitArrayFile = new File("runner/cpp/utils/split_array.cc");
     File joinArrayFile = new File("runner/cpp/utils/join_array.cc");
     String[] cmds = { "g++", demoFile.getAbsolutePath(), splitArrayFile.getAbsolutePath(),
-        joinArrayFile.getAbsolutePath(), "-o", executablePath };
+        joinArrayFile.getAbsolutePath(), "-static", "-o", executablePath };
 
     Process p = Runtime.getRuntime().exec(cmds);
     p.waitFor();

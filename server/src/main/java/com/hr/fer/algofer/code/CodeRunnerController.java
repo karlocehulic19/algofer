@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hr.fer.algofer.DockerRunner;
 import com.hr.fer.algofer.code.utils.CompileCode;
 import com.hr.fer.algofer.code.utils.CopyCode;
 
@@ -24,6 +25,7 @@ public class CodeRunnerController {
       System.out.println(e);
     }
 
+    // dockerRunner.run();
     CopyCode.delete();
     // HARDCODED UNTIL ACTUAL IMPLEMENTATION IS COMPLETE
     if (body.code().equals("CORRECT SOLUTION")) {

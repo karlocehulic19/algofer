@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AlgoferApplication {
 
   public static void main(String[] args) {
+    // DockerRunner.run();
     SpringApplication.run(AlgoferApplication.class, args);
   }
 }
