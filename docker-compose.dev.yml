@@ -1,31 +1,28 @@
 services:
-  next-app:
-    container_name: next-app
+  algofer-client:
+    container_name: algofer-client
     build:
-      context: ./next-app
-      dockerfile: dev.Dockerfile
+      context: ./client
+      dockerfile: ./Dockerfile.dev
 
     # Set environment variables directly in the compose file
     environment:
-      ENV_VARIABLE: ${ENV_VARIABLE}
-      NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+      SERVER_URL: http://localhost:8080
 
     # Set environment variables based on the .env file
-    env_file:
-      - .env
     volumes:
-      - ./next-app/src:/app/src
-      - ./next-app/public:/app/public
+      - ./src:/app/src
+      - ./public:/app/public
     restart: always
     ports:
       - 3000:3000
     networks:
-      - my_network
+      - algofer-network
 
   # Add more containers below (nginx, postgres, etc.)
 
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 networks:
-  my_network:
-    external: true
+  algofer-network:
+    driver: bridge
