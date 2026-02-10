@@ -11,8 +11,8 @@ services:
 
     # Set environment variables based on the .env file
     volumes:
-      - ./src:/app/src
-      - ./public:/app/public
+      - ./client/src:/app/src
+      - ./client/public:/app/public
     restart: always
     ports:
       - 3000:3000
