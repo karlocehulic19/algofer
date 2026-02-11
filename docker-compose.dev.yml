@@ -19,6 +19,22 @@ services:
     networks:
       - algofer-network
 
+  algofer-server:
+    container_name: algofer-server
+    build: 
+      context: ./server
+      dockerfile: ./Dockerfile.dev
+    environment:
+      CLIENT_URL: http://localhost:3000
+      EXECUTABLE_DIR: runner/exec
+      EXECUTABLE_NAME: run.out
+    ports:
+      - 8080:8080
+    networks:
+      - algofer-network
+
+    
+
   # Add more containers below (nginx, postgres, etc.)
 
 # Define a network, which allows containers to communicate
