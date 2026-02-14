@@ -30,7 +30,7 @@ public class CodeRunnerController {
       String testcase = "[MyList,AddUnique,3,AddUnique,3,Remove,3,Contains,3]";
       stdouts = dockerRunner.run(testcase);
     } catch (Exception e) {
-      System.out.println(e);
+      e.printStackTrace();
     }
 
     CopyCode.delete();
