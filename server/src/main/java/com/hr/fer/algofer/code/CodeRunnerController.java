@@ -20,8 +20,29 @@ public class CodeRunnerController {
     this.dockerRunner = dockerRunner;
   }
 
-  @PostMapping("/api/demo/submit")
-  CodeSubmitResult SubmitDemoSolution(@RequestBody CodeSubmit body) {
+  @PostMapping("/api/asp/demo/submit")
+  CodeSubmitResult SubmitASPDemoSolution(@RequestBody CodeSubmit body) {
+    List<String> stdouts = null;
+
+    try {
+      CopyCode.copy(body.code());
+      compileCode.compile();
+      String testcase = "[MyList,AddUnique,3,AddUnique,3,Remove,3,Contains,3]";
+      stdouts = dockerRunner.run(testcase);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    CopyCode.delete();
+    if (stdouts == null || stdouts.size() == 0) {
+      return new CodeSubmitResult(CodeSubmitResultStatus.PASS);
+    }
+
+    return new CodeSubmitResult(CodeSubmitResultStatus.FAIL);
+  }
+
+  @PostMapping("/oop/asp/demo/submit")
+  CodeSubmitResult SubmitOOPDemoSolution(@RequestBody CodeSubmit body) {
     List<String> stdouts = null;
 
     try {
