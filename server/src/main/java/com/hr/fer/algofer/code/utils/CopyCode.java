@@ -8,8 +8,8 @@ import java.nio.file.Files;
 
 public class CopyCode {
   public static void copy(String code) throws IOException {
-    File TemplateMyList = new File("runner/cpp/_temp_mylist.h");
-    File HeaderMyList = new File("runner/cpp/mylist.h");
+    File TemplateMyList = new File("asp-runner/cpp/_temp_mylist.h");
+    File HeaderMyList = new File("asp-runner/cpp/mylist.h");
 
     Files.copy(TemplateMyList.toPath(), HeaderMyList.toPath());
     BufferedWriter bw = new BufferedWriter(new FileWriter(HeaderMyList, true));
@@ -18,7 +18,7 @@ public class CopyCode {
   }
 
   public static void delete() {
-    File HeaderMyList = new File("runner/cpp/mylist.h");
+    File HeaderMyList = new File("asp-runner/cpp/mylist.h");
     HeaderMyList.delete();
   }
 }

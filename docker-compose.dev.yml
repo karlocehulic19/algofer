@@ -26,7 +26,7 @@ services:
       dockerfile: ./Dockerfile.dev
     environment:
       CLIENT_URL: http://algofer-client:3000
-      EXECUTABLE_DIR: runner/exec
+      EXECUTABLE_DIR: asp-runner/exec
       EXECUTABLE_NAME: run.out
     ports:
       - 8080:8080

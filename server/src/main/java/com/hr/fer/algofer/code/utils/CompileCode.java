@@ -18,9 +18,9 @@ public class CompileCode {
     File executableDir = new File(executableDirPath);
     String executablePath = executableDir.getAbsolutePath() + "/" + executableName;
 
-    File demoFile = new File("runner/cpp/demo.cc");
-    File splitArrayFile = new File("runner/cpp/utils/split_array.cc");
-    File joinArrayFile = new File("runner/cpp/utils/join_array.cc");
+    File demoFile = new File("asp-runner/cpp/demo.cc");
+    File splitArrayFile = new File("asp-runner/cpp/utils/split_array.cc");
+    File joinArrayFile = new File("asp-runner/cpp/utils/join_array.cc");
     String[] cmds = { "g++", demoFile.getAbsolutePath(), splitArrayFile.getAbsolutePath(),
         joinArrayFile.getAbsolutePath(), "-static", "-o", executablePath };
 
