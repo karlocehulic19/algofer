@@ -5,7 +5,8 @@ import { CodeResultSection } from "../CodeResultSection";
 const codeBoilerplate = `class Solution {
   public void zaokruziPi() {
     // add your solution here
-  }`;
+  }
+}`;
 
 export function CodeRunner() {
   const [usersCode, setUsersCode] = useState(codeBoilerplate);
