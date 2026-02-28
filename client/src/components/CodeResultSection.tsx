@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { Button } from "./Button";
-import { submitCode } from "../app/actions/submitCode";
 import { ResultBarStatus } from "../lib/enums";
+import { submittedCodeOOP } from "../app/actions/submitCodeOOP";
 
 export function CodeResultSection({
   submittedCode,
@@ -12,7 +12,7 @@ export function CodeResultSection({
   const [status, setStatus] = useState<ResultBarStatus>(ResultBarStatus.NotRun);
 
   async function componentSubmitCode() {
-    const returnedStatus = await submitCode(submittedCode);
+    const returnedStatus = await submittedCodeOOP(submittedCode);
 
     setStatus(returnedStatus);
   }
