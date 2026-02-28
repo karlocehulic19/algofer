@@ -2,21 +2,10 @@
 import { useState } from "react";
 import { CodeResultSection } from "../CodeResultSection";
 
-const codeBoilerplate = `template<typename T>
-class MyList{
-  private:
-    ListElement<T> *head;
-  public:
-    void AddUnique(T val){
-    //vaš kod za AddUnique
-    } 
-    void Remove(T val){
-    // vaš kod za Remove 
-    } 
-    bool Contains(T val){
-    // vaš kod za Contains
-    } 
-};`;
+const codeBoilerplate = `class Solution {
+  public void zaokruziPi() {
+    // add your solution here
+  }`;
 
 export function CodeRunner() {
   const [usersCode, setUsersCode] = useState(codeBoilerplate);
