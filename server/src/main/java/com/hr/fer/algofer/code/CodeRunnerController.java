@@ -41,7 +41,7 @@ public class CodeRunnerController {
     return new CodeSubmitResult(CodeSubmitResultStatus.FAIL);
   }
 
-  @PostMapping("/oop/asp/demo/submit")
+  @PostMapping("/api/oop/demo/submit")
   CodeSubmitResult SubmitOOPDemoSolution(@RequestBody CodeSubmit body) {
     List<String> stdouts = null;
 
