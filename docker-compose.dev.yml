@@ -28,6 +28,9 @@ services:
       CLIENT_URL: http://algofer-client:3000
       EXECUTABLE_DIR: asp-runner/exec
       EXECUTABLE_NAME: run.out
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
     ports:
       - 8080:8080
     networks:
