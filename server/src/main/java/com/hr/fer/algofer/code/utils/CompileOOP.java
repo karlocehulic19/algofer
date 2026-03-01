@@ -9,8 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CompileOOP {
   public void compile() throws IOException, InterruptedException {
-    String tmpDir = System.getProperty("java.io.tmpdir");
-    File solutionFile = new File(tmpDir, "Solution.java");
+    File solutionFile = new File("/app/oop-runner/build", "Solution.java");
 
     String[] cmds = { "javac", solutionFile.getAbsolutePath() };
 

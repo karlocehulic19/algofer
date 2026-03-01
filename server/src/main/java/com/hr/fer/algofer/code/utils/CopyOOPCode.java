@@ -7,8 +7,7 @@ import java.io.IOException;
 
 public class CopyOOPCode implements CopyCodeInter {
   public static void copy(String code) throws IOException {
-    String tmpDir = System.getProperty("java.io.tmpdir");
-    File solutionFile = new File(tmpDir, "Solution.java");
+    File solutionFile = new File("/app/oop-runner/build", "Solution.java");
 
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(solutionFile))) {
       bw.write(code);
