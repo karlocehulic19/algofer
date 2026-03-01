@@ -19,13 +19,15 @@ public class CodeRunnerController {
   private DockerRunner dockerRunner;
   private DockerRunnerOOP dockerRunnerOOP;
   private CompileOOP compileOOP;
+  private CopyOOPCode copyOOPCode;
 
   CodeRunnerController(CompileCode compileCode, DockerRunner dockerRunner, CompileOOP compileOOP,
-      DockerRunnerOOP dockerRunnerOOP) {
+      DockerRunnerOOP dockerRunnerOOP, CopyOOPCode copyOOPCode) {
     this.compileCode = compileCode;
     this.dockerRunner = dockerRunner;
     this.compileOOP = compileOOP;
     this.dockerRunnerOOP = dockerRunnerOOP;
+    this.copyOOPCode = copyOOPCode;
   }
 
   @PostMapping("/api/asp/demo/submit")
@@ -54,7 +56,7 @@ public class CodeRunnerController {
     List<String> stdouts = null;
 
     try {
-      CopyOOPCode.copy(body.code());
+      copyOOPCode.copy(body.code());
       compileOOP.compile();
       stdouts = dockerRunnerOOP.run();
     } catch (Exception e) {

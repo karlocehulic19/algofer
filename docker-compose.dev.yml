@@ -25,6 +25,9 @@ services:
       context: ./server
       dockerfile: ./Dockerfile.dev
     environment:
+      EXECUTABLE_OOP_DIR: /app/oop-runner/build
+      COPIED_OOP_DIR: /app/oop-runner/build
+      COPIED_OOP_FILENAME: Solution
       CLIENT_URL: http://algofer-client:3000
       EXECUTABLE_DIR: asp-runner/exec
       EXECUTABLE_NAME: run.out

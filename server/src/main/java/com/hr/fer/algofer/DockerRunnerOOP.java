@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.github.dockerjava.api.DockerClient;
@@ -22,6 +23,9 @@ import com.github.dockerjava.transport.DockerHttpClient;
 public class DockerRunnerOOP {
   private DockerClient dockerClient;
 
+  @Value("${COPIED_OOP_FILENAME}")
+  private String copiedFilename;
+
   DockerRunnerOOP() {
     DockerClientConfig defaultConfig = DefaultDockerClientConfig.createDefaultConfigBuilder().build();
 
@@ -33,7 +37,6 @@ public class DockerRunnerOOP {
   }
 
   public List<String> run() throws InterruptedException {
-    // Dockerfiles managment model might be needed for multiple langauge feature
     File dockerFile = new File("/app/oop-runner" + "/Dockerfile");
 
     String imageId;
@@ -43,7 +46,7 @@ public class DockerRunnerOOP {
         }).awaitImageId();
 
     String containerId = dockerClient.createContainerCmd(imageId)
-        .withCmd("java", "Solution")
+        .withCmd("java", copiedFilename)
         .exec()
         .getId();
 
