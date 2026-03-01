@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hr.fer.algofer.DockerRunner;
+import com.hr.fer.algofer.DockerRunnerOOP;
 import com.hr.fer.algofer.code.utils.CompileCode;
 import com.hr.fer.algofer.code.utils.CompileOOP;
 import com.hr.fer.algofer.code.utils.CopyCode;
@@ -16,12 +17,15 @@ import com.hr.fer.algofer.code.utils.CopyOOPCode;
 public class CodeRunnerController {
   private CompileCode compileCode;
   private DockerRunner dockerRunner;
+  private DockerRunnerOOP dockerRunnerOOP;
   private CompileOOP compileOOP;
 
-  CodeRunnerController(CompileCode compileCode, DockerRunner dockerRunner, CompileOOP compileOOP) {
+  CodeRunnerController(CompileCode compileCode, DockerRunner dockerRunner, CompileOOP compileOOP,
+      DockerRunnerOOP dockerRunnerOOP) {
     this.compileCode = compileCode;
     this.dockerRunner = dockerRunner;
     this.compileOOP = compileOOP;
+    this.dockerRunnerOOP = dockerRunnerOOP;
   }
 
   @PostMapping("/api/asp/demo/submit")
@@ -52,8 +56,13 @@ public class CodeRunnerController {
     try {
       CopyOOPCode.copy(body.code());
       compileOOP.compile();
+      stdouts = dockerRunnerOOP.run();
     } catch (Exception e) {
       e.printStackTrace();
+    }
+
+    if (stdouts == null || stdouts.size() == 0) {
+      return new CodeSubmitResult(CodeSubmitResultStatus.PASS);
     }
 
     return new CodeSubmitResult(CodeSubmitResultStatus.FAIL);

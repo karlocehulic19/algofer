@@ -8,5 +8,6 @@ RUN ./mvnw dependency:go-offline
  
 COPY src ./src
 COPY asp-runner ./runner
+COPY oop-runner ./oop-runner
  
 CMD ["./mvnw", "spring-boot:run"]
