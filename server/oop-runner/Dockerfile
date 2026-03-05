@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 ARG EXECUTABLE_DIR=/build
 ARG EXECUTABLE_FILENAME=Solution
 
