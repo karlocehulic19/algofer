@@ -52,18 +52,21 @@ public class DockerRunnerOOP {
 
     dockerClient.startContainerCmd(containerId).exec();
     LogContainerCmd logContainer = dockerClient.logContainerCmd(containerId).withStdOut(true)
-        .withTail(100);
+        .withFollowStream(true);
 
     List<String> stdouts = new ArrayList<>();
-    logContainer.exec(
-        new ResultCallback.Adapter<Frame>() {
-          @Override
-          public void onNext(Frame frame) {
-            stdouts.add(new String(frame.getPayload()));
-          }
-        });
+    ResultCallback.Adapter<Frame> callback = new ResultCallback.Adapter<Frame>() {
+      @Override
+      public void onNext(Frame frame) {
+        String log = new String(frame.getPayload());
+        stdouts.add(log);
+      }
+    };
+
+    logContainer.exec(callback);
 
     dockerClient.waitContainerCmd(containerId).start().awaitCompletion();
+    callback.awaitCompletion();
     dockerClient.removeContainerCmd(containerId).exec();
 
     return stdouts;
