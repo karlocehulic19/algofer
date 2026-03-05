@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CopyOOPCode implements CopyCodeInter {
+public class CopyOOPCode {
   @Value("${COPIED_OOP_DIR}")
   private String copiedDir;
 

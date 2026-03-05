@@ -8,7 +8,6 @@ COPY mvnw pom.xml ./
 RUN ./mvnw dependency:go-offline
  
 COPY src ./src
-COPY asp-runner ./runner
 COPY oop-runner ./oop-runner
 RUN mkdir -p $RUNNABLE_DIR
  
