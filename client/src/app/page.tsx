@@ -11,12 +11,6 @@ export default function Home() {
         >
           OOP
         </Link>
-        <Link
-          href={"/asp/demo"}
-          className="text-2xl bg-blue-100 rounded-sm justify-self-center p-1.5 text-indigo-950 text-center w-[20vw]"
-        >
-          ASP
-        </Link>
       </div>
     </div>
   );
