@@ -35,8 +35,8 @@ class AlgoferApplicationTests {
     copyOOPCode.copy("Hello World!", copied.getAbsolutePath());
 
     File expected = new ClassPathResource(copiedDir + "/" + compareFilename).getFile();
-    assertEquals(FileUtils.readLines(copied, Charset.defaultCharset()),
-        FileUtils.readLines(expected, Charset.defaultCharset()));
+    assertEquals(FileUtils.readLines(expected, Charset.defaultCharset()),
+        FileUtils.readLines(copied, Charset.defaultCharset()));
   }
 
   @Test
