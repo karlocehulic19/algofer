@@ -18,6 +18,9 @@ public class CopyOOPCode {
 
   public void copy(String code, String absoluteSolutionFilePath) throws IOException {
     File solutionFile = new File(absoluteSolutionFilePath);
+    if (!solutionFile.exists()) {
+      throw new IOException("File to copy clients solution doesn't exist.");
+    }
 
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(solutionFile))) {
       bw.write(code);
