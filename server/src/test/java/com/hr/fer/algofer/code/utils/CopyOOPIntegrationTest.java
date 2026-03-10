@@ -1,6 +1,7 @@
 package com.hr.fer.algofer.code.utils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,4 +39,15 @@ class AlgoferApplicationTests {
         FileUtils.readLines(expected, Charset.defaultCharset()));
   }
 
+  @Test
+  void throwsIfFileToCopyToIsMissing() throws IOException {
+    File folder = new ClassPathResource(copiedDir).getFile();
+
+    Exception thrownException = assertThrows(IOException.class,
+        () -> {
+          copyOOPCode.copy("Hello World!", folder.getAbsolutePath() + "/foo.txt");
+        });
+
+    assertEquals("File to copy clients solution doesn't exist.", thrownException.getMessage());
+  }
 }
