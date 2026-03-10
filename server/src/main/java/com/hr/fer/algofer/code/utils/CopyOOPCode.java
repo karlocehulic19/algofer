@@ -16,8 +16,8 @@ public class CopyOOPCode {
   @Value("${COPIED_OOP_FILENAME}")
   private String copiedFilename;
 
-  public void copy(String code) throws IOException {
-    File solutionFile = new File(copiedDir, copiedFilename + ".java");
+  public void copy(String code, String absoluteSolutionFilePath) throws IOException {
+    File solutionFile = new File(absoluteSolutionFilePath);
 
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(solutionFile))) {
       bw.write(code);

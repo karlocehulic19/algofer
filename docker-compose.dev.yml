@@ -27,7 +27,7 @@ services:
     environment:
       EXECUTABLE_OOP_DIR: /app/oop-runner/build
       COPIED_OOP_DIR: /app/oop-runner/build
-      COPIED_OOP_FILENAME: Solution
+      COPIED_OOP_FILENAME: Solution.java
       CLIENT_URL: http://algofer-client:3000
       EXECUTABLE_NAME: run.out
     volumes:
