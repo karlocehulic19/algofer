@@ -16,8 +16,8 @@ public class CopyOOPCode {
   @Value("${COPIED_OOP_FILENAME}")
   private String copiedFilename;
 
-  public void copy(String code, String absoluteSolutionFilePath) throws IOException {
-    File solutionFile = new File(absoluteSolutionFilePath);
+  public void copy(String code) throws IOException {
+    File solutionFile = new File(copiedDir, copiedFilename);
     if (!solutionFile.exists()) {
       throw new IOException("File to copy clients solution doesn't exist.");
     }
