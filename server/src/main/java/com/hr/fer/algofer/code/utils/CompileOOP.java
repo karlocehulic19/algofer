@@ -17,6 +17,9 @@ public class CompileOOP {
 
   public void compile() throws IOException, InterruptedException {
     File solutionFile = new File(copiedDir, copiedFilename + ".java");
+    if (!solutionFile.exists()) {
+      throw new IOException("Solutions file doesn't exist.");
+    }
 
     String[] cmds = { "javac", solutionFile.getAbsolutePath() };
 
