@@ -17,7 +17,7 @@ import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
 @TestPropertySource("classpath:code/utils/copy.test.properties")
-class AlgoferApplicationTests {
+class CopyOOPTest {
   @Value("${COMPARE_COPIED_FILENAME}")
   String compareFilename;
   @Value("${COPIED_OOP_DIR}")
