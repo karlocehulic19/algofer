@@ -4,7 +4,7 @@ import { ResultBarStatus } from "@/src/lib/enums";
 import { SERVER_URL } from "@/src/lib/constants";
 
 export async function submittedCodeOOP(submittedCode: string) {
-  const res = await fetch(SERVER_URL + "/api/oop/demo/submit", {
+  const res = await fetch(SERVER_URL + "/api/v1/oop/demo/submit", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
