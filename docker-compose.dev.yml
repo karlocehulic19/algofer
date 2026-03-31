@@ -7,7 +7,7 @@ services:
 
     # Set environment variables directly in the compose file
     environment:
-      SERVER_URL: http://algofer-server-go:8000
+      SERVER_URL: http://algofer-server:8000
 
     # Set environment variables based on the .env file
     volumes:
@@ -20,25 +20,6 @@ services:
       - algofer-network
 
   algofer-server:
-    container_name: algofer-server
-    build: 
-      context: ./server
-      dockerfile: ./Dockerfile.dev
-    environment:
-      EXECUTABLE_OOP_DIR: /app/oop-runner/build
-      COPIED_OOP_DIR: /app/oop-runner/build
-      COPIED_OOP_FILENAME: Solution
-      CLIENT_URL: http://algofer-client:3000
-      EXECUTABLE_NAME: run.out
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-
-    ports:
-      - 8080:8080
-    networks:
-      - algofer-network
-
-  algofer-server-go:
     container_name: algofer-server-go
     build:
       context: ./server-go
