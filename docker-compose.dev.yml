@@ -7,7 +7,7 @@ services:
 
     # Set environment variables directly in the compose file
     environment:
-      SERVER_URL: http://algofer-server:8080
+      SERVER_URL: http://algofer-server-go:8000
 
     # Set environment variables based on the .env file
     volumes:
@@ -38,6 +38,15 @@ services:
     networks:
       - algofer-network
 
+  algofer-server-go:
+    container_name: algofer-server-go
+    build:
+      context: ./server-go
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - 8000:8000
+    networks:
+      - algofer-network
     
 
   # Add more containers below (nginx, postgres, etc.)

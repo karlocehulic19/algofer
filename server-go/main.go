@@ -31,5 +31,5 @@ func main() {
 	router.GET("/hello", getHello)
 	router.POST("/api/v1/oop/demo/submit", postDemoSolution)
 
-	router.Run("localhost:8080")
+	router.Run("0.0.0.0:8000")
 }
