@@ -1,6 +1,9 @@
 package main
 
 import (
+	"context"
+
+	"github.com/docker/go-sdk/image"
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,10 +23,21 @@ func postDemoSolution(c *gin.Context) {
 		return
 	}
 
+	copy_and_compile()
 	c.JSON(200, gin.H{
 		"status":     "PASS",
 		"codeSubmit": codeSubmit,
 	})
+}
+
+func copy_and_compile() {
+	ctx := context.Background()
+
+	tag, err := image.BuildFromDir(ctx, "./compiler", "Dockerfile", "test-go")
+	if err != nil {
+		panic(err)
+	}
+	print("tag :", tag)
 }
 
 func main() {
