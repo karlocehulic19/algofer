@@ -1,3 +1,6 @@
-FROM alpine:3.14
+FROM eclipse-temurin:21-alpine
+WORKDIR /app
 
-CMD echo Hello Server
+COPY Solution.java /app
+RUN javac Solution.java
+CMD java Solution
