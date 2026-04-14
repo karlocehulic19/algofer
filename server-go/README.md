@@ -2,13 +2,13 @@
 
 ## Prerequisites
 
- - Docker config file, I have aquried mine by doing `docker login`
+ - Docker configuration file, I have acquired mine by doing `docker login`
 
 > This might not be needed later on, as if better solution occurs during deployment, one should be easily converted to dev environment
 
 ## Code Runner Architecture
 
-Initialy, for the sake of simplicity, architecture would look something like this:
+Initially, for the sake of simplicity, architecture would look something like this:
 
 1. Server copies code to `Solution.java` file 
 2. Container copies, compiles and runs `Solution.java`
