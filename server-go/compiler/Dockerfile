@@ -1,6 +1,5 @@
-FROM eclipse-temurin:21-alpine
+FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
 COPY Solution.java /app
-RUN javac Solution.java
-CMD java Solution
+CMD javac Solution.java
